@@ -1,0 +1,92 @@
+body{
+    background-image: url('./assets/img/r.png') ;
+}
+.form-container{
+
+    font: 95%;
+    font-family:$letra ;
+    max-width: 500px;
+    padding: 4%;
+    margin: 10px auto solid ;
+    @include centrar-horizontal;
+    
+    @include img;
+}
+.form-container h1{
+    background:$celeste;
+    padding: 20px 0 ;
+    font-size: $tamaño-letra;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 3%;
+    color:$blanco;
+    margin: -16px 16px -16px 16px;
+}
+
+
+
+.form-container input[type= "text"],
+.form-container input[type= "password"],
+.form-container input[type= "text"],
+.form-container input[type= "email"]{
+    transition: all 0,20 ease-in-out;
+    width: 95%;
+    background:$blanco;
+    margin-bottom: 3%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color:  #555;
+    font: $letra;
+
+}
+
+
+.form-container .btn-send{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background:$celeste;
+    border-bottom: 2px solid $celeste;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color:#fff;
+    font-size: $tamaño-letra;
+    margin-top: 10px;
+
+}
+
+.form-container .btn-send:hover{
+    background: $azul;
+    padding: 3%;
+}
+
+.colorbutton{
+    @include button(map-keys($buttons-color)...);
+}
+
+.alert-danger{
+    color: rgb(255, 0, 0) 0 0 0;
+    background: #f8d7da;
+    border-color: #f5c6cb;
+    margin: 3px;
+}
+
+
+.container-error-message{
+    padding: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

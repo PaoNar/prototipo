@@ -1,0 +1,89 @@
+<body>
+    <div class= "form-container">
+           
+            <h1>  <strong> REGISTRO </strong> </h1>
+            <form [formGroup]= "contactForm" (ngSubmit)= "OnSaveForm()">
+                <input type="text"  formControlName= "name"  placeholder="Nombre ">
+                <div class=" alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)" >
+                    <div  class="container-error-message" *ngIf= "name.errors.required">
+                        Nombre Requerido
+                        </div>
+                    <div class=" container-error-message" *ngIf ="name.errors.minlength">
+                            Nombre de minimo 5 caracteres
+                        </div>
+        
+                </div>
+
+                <input type="password"  formControlName= "password"  placeholder="Contraseña ">
+                <div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)" >
+                        <div class=" container-error-message" *ngIf= "password.errors.required">
+                            Telefono Requerido
+                        </div>
+                        <div class="container-error-message" *ngIf ="password.errors.minlength">
+                                minimo 10 caracteres
+                            </div>
+                        <div class="container-error-message" *ngIf ="password.errors.maxlength">
+                                maximo 32 caracteres
+                            </div>
+                </div>
+
+
+
+
+
+
+
+        
+        
+        
+        
+        
+                <input type="text"  formControlName= "email"  placeholder="Email ">
+                <div class=" alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)" >
+                    <div class="container-error-message" *ngIf= "email.errors.required">
+                        Email Requerido
+                        </div>
+                    <div class="container-error-message" *ngIf ="email.errors.minlength">
+                            Email de minimo 5 caracteres
+                        </div>
+                    <div class="container-error-message" *ngIf ="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+                            Email debe ser valido
+                        </div> 
+                 </div>   
+        
+        
+        
+                <input type="text"  formControlName= "cell"  placeholder="Teléfono ">
+                <div class="alert-danger" *ngIf="cell.invalid && (cell.dirty || cell.touched)" >
+                        <div class=" container-error-message" *ngIf= "cell.errors.required">
+                            Telefono Requerido
+                        </div>
+                        <div class="container-error-message" *ngIf ="cell.errors.minlength">
+                                Telefono no válido
+                            </div>
+                        <div class="container-error-message" *ngIf ="cell.errors.maxlength">
+                                Telefono no válido
+                            </div>
+                </div>
+
+
+
+
+                
+        
+        
+        
+        
+                <button type= "submit" class="btn-send"  >Enviar</button>
+                
+               
+                <!-- <button class="colorbutton  secundario "  data-dismiss="alert">  ADVERTENCIA  <span>&times;</span></button>
+                <button class="alerta" class="colorbutton alerta "  data-dismiss="alert">  ERROR  <span>&times;</span></button> 
+                <button class="colorbutton   verde"  data-dismiss="alert">  GUARDADO  <span>&times;</span></button>
+                    -->
+                   
+                
+        
+            </form>
+        </div>
+</body>

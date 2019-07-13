@@ -1,0 +1,49 @@
+
+@mixin button($colors...) {
+    @if $buttons{
+        display: inline-block;
+        margin: 1em;
+        color: map-get($buttons-color, nth($colors,1) );
+        background-color: transparent;
+        border: none;
+        
+    }
+    @else{
+        display: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    &:hover{
+        bottom: $blanco;
+        top: $blanco;
+    }
+   @if length($colors)>1{
+           @for $i from 2 through length($colors){
+                &.#{nth($colors,$i)}{
+                     background-color: map-get($buttons-color, nth($colors, $i));
+                     color: rgb(49, 48, 48);
+                     padding: 20px;
+                     
+    }      
+}   
+
+ }@else{
+    display: none;
+
+    }
+}
+
+@mixin centrar-horizontal{
+    margin-left: auto;
+    margin-right: auto;
+    top: 10px;
+}
+
+@mixin img{
+    background-image: url('./assets/img/telas2.jpg') ;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    opacity: 0.8;
+}
+
