@@ -14,16 +14,16 @@ export class ContactComponent implements OnInit {
 
   form;
   emailPattern: any= /^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+.[a-z]{3}[a-z0-9-]*(.[a-z]{2,4})$/;
-  namePattern: any=  /^[A-Za-z]+[A-Za-z0-9-_. ]$/;
-  cellPattern: any= /^[0-9]{10}$/;
-  passwordPattern: any= /^[A-Za-z]+[A-Za-z0-9-_. ]*[0-9]$/;
+  namePattern: any=  /^[A-Z]?[a-z]+[^0-9_\\_\ü. ]+$/;
+  cellPattern: any= /^(09)+[0-9]{8}$/;
+  passwordPattern: any= /^[A-Za-z]+[A-Za-z0-9-_.\\_\ü ]*[0-9]*$/;
 
   createFormGoup(){
     return new FormGroup({
       email: new FormControl('', [Validators.required,Validators.minLength(5), Validators.pattern(this.emailPattern), Validators.email]),
-      name: new FormControl('',[Validators.required,Validators.minLength(5), Validators.pattern(this.namePattern)]),
-      cell: new FormControl('',[Validators.required,Validators.minLength(10), Validators.maxLength(10),Validators.pattern(this.cellPattern)]),
-      password: new FormControl('',[Validators.required,Validators.minLength(10), Validators.maxLength(32),Validators.pattern(this.passwordPattern)])
+      name: new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(18), Validators.pattern(this.namePattern)]),
+      cell: new FormControl('',[Validators.required,Validators.pattern(this.cellPattern)]),
+      password: new FormControl('',[Validators.required,Validators.minLength(5), Validators.maxLength(32),Validators.pattern(this.passwordPattern)])
     })
   }
 
@@ -31,15 +31,19 @@ export class ContactComponent implements OnInit {
 
   constructor( private dbData: DataDbService) { 
     this.contactForm = this.createFormGoup();
+    
   }
 
   ngOnInit() {
+    
     }
 
 
   onResetForm(){
     this.contactForm.reset();
   }
+
+  
 
   OnSaveForm(){
     if (this.contactForm.valid){

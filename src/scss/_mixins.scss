@@ -1,5 +1,5 @@
 
-@mixin button($colors...) {
+@mixin button($colors) {
     @if $buttons{
         display: inline-block;
         margin: 1em;
@@ -40,10 +40,5 @@
     top: 10px;
 }
 
-@mixin img{
-    background-image: url('./assets/img/telas2.jpg') ;
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    opacity: 0.8;
-}
+
 
